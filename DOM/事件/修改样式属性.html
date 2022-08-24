@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+
+    </div>
+
+    <script>
+        // 1. 获取元素对象
+        var div = document.querySelector('div');
+        // 2. 绑定事件 处理程序
+        div.onclick = function() {
+            div.style.backgroundColor = 'purple';
+            div.style.width = '200px';
+            this.style.height = '100px';
+        }
+
+        // JS里面样式采用驼峰命名法
+        // JS的style样式产生的是行内样式，CSS权重比较高优先生效。
+    </script>
+</body>
+</html>

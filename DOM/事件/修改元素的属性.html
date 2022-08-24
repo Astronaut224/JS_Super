@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="Android">Android</button>
+    <button id="Unity">Unity</button>
+    <img src="./images/course04.png" alt="">
+    <input type="text" value="请输入内容">
+    <button id="disable">禁用</button>
+    
+    <script>
+        var btnA = document.querySelector('#Android');
+        var btnU = document.querySelector('#Unity');
+        var img = document.querySelector('img');
+        
+        btnA.onclick = function() {
+            img.src = "./images/course04.png";
+            img.title = '安卓';
+        }
+
+        btnU.onclick = function() {
+            img.src = './images/course07.png';
+            img.title = 'Unity';
+        }
+
+        // 注意表单里面的文字是通过value属性来修改的。
+        var btnDis = document.querySelector('#disable');
+        var inclick = document.querySelector('input') ;
+        btnDis.onclick = function() {
+            inclick.value = '被点击了';
+            // this指向事件函数的调用者btnDis
+            this.disabled = true;
+        }
+    </script>
+</body>
+</html>
