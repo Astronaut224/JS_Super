@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="grandfather">
+        <div class="box">
+            <div class="code">123</div>
+        </div>
+    </div>
+
+    <div>
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </div>
+
+    <script>
+        var old = document.querySelector('.grandfather');
+        var box = document.querySelector('.box');
+        var ul = document.querySelector('ul');
+        // var code = document.querySelector('.code');
+
+        // 1. childNodes返回所有子节点包括 元素、文本等
+        console.log(old.childNodes);
+        console.log(old.childNodes[1].nodeType);
+        // childNodes要单独获取元素需要通过for循环过滤出nodeType为1的节点，不方便
+
+        // 2. children返回所有子元素节点    主要用这个
+        console.log(old.children);
+
+        // 3. firstchild返回第一个子节点，lastchild返回最后一个子节点，这里时返回换行text节点
+        console.log(ul.firstChild);
+        console.log(ul.lastChild);
+
+        // 4. firstElementChild返回第一个子元素节点，lastElementChild返回最后一个子元素节点
+        console.log(ul.firstElementChild);
+        console.log(ul.lastElementChild);
+    </script>
+</body>
+</html>

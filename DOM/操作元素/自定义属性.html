@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div id="demo" index="dd" class="box" data-id="123" data-div-name="name"></div>
+
+    <script>
+        var div = document.querySelector('div');
+        // 1. 获取自定义属性
+        // (1) element.属性  获取元素自带的属性
+        console.log(div.id);
+        // (2) element.getAttribute('属性')     获取自定义的属性
+        console.log(div.getAttribute('index'));
+
+        // 2. 设置自定义属性
+        // (1) element.属性=值
+        div.id = 'change';
+        console.log(div.id);
+        // (2) element.setAttribute('属性', '值')
+        div.setAttribute('index', 2);
+        div.setAttribute('class', 'boxes');     // 注意是class而不是className
+        console.log(div.getAttribute('index'));
+        console.log(div.className);
+
+        // 3. 删除自定义属性
+        div.removeAttribute('index');
+
+        // 4. H5新增要求自定义属性都以data-开头
+        // 5. H5新增获取自定义属性方法dataset，dataset是一个集合，里面存放了所有data开头的属性
+        console.log(div.dataset);
+        console.log(div.dataset.id);
+        console.log(div.dataset['id']);
+        // 如果自定义属性中有多个'-'连接，dataset获取时采用驼峰命名法
+        console.log(div.dataset.divName);
+        console.log(div.dataset['divName']);
+    </script>
+    
+</body>
+</html>

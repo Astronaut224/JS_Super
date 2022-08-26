@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>123</li>
+    </ul>
+
+    <script>
+        // 创建节点
+        var li = document.createElement('li');
+        // 末尾添加节点 node.appendChild('child')   node是父节点 child是子节点
+        var ul = document.querySelector('ul');
+        ul.appendChild(li);
+        // 指定元素前添加节点 node.insertBefore(child, 指定元素)
+        var lili = document.createElement('li');
+        ul.insertBefore(lili, ul.children[0]);
+
+        // 总结：先创建元素，再添加元素
+    </script>
+</body>
+</html>

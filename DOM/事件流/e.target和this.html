@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>123</div>
+    <ul>
+        <li>123</li>
+        <li>123</li>
+        <li>123</li>
+    </ul>
+
+    <script>
+        var div = document.querySelector('div');
+        div.addEventListener('click', function(e) {
+            console.log(e.target);
+            console.log(this);
+        })
+
+        // this是绑定了事件的元素，e.target是触发了事件的元素
+        var ul = document.querySelector('ul');
+        // 这里是ul绑定了事件
+        ul.addEventListener('click', function(e) {
+            console.log(e.target);  // 点击了li，没有事件，往上冒泡过程中发现ul绑定了事件，于是触发
+            console.log(this);  // 返回ul
+        })
+    </script>
+</body>
+</html>

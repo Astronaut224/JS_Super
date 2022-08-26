@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        body {
+            background: url(./images/desktop_1.jpg) center top;
+        }
+
+        .baidu {
+            overflow: hidden;
+            margin: 100px auto;
+            width: 410px;
+            padding-top: 3px;
+        }
+
+        .baidu li {
+            float: left;
+            margin: 0 1px;
+            cursor: pointer;
+        }
+
+        img {
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <ul class="baidu">
+        <li><img src="./images/desktop_1.jpg" alt=""></li>
+        <li><img src="./images/desktop_2.jpg" alt=""></li>
+        <li><img src="./images/desktop_3.jpg" alt=""></li>
+    </ul>
+
+    <script>
+        // 1. 获取元素，获取到的是伪数组
+        var imgs = document.querySelector('.baidu').querySelectorAll('img');
+        // 2. for循环给所有获取到的img绑定事件
+        for(var i = 0; i < imgs.length; i++) {
+            imgs[i].onclick = function() {
+                document.body.style.backgroundImage = 'url(' + this.src + ')';
+            }
+        }
+
+    </script>
+</body>
+</html>

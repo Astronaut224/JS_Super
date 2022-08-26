@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>创建</button>
+    <p>123</p>
+    <div class="inner"></div>
+    <div class="create"></div>
+
+    <script>
+        // 三种动态创建元素的方法
+        // 1. document.write() 是直接将内容写入页面的内容流，如果文档流执行完毕再调用，则会导致页面重绘（原来的内容就没有了）
+        document.write('<div>abc</div>');
+
+        // 2. innerHTML 用拼接字符串的形式效率极低，用数组拼接的话效率比createElement更高一些
+        var inner = document.querySelector('.inner');
+        var arr = [];
+        for(var i = 0; i < 100; i++) {
+            // inner.innerHTML +='<a href="#">百度</a>';
+            arr.push('<a href="#">百度</a>');
+            inner.innerHTML = arr.join('');
+        }
+        
+        // 3. document.createElement()
+        var create = document.querySelector('.create');
+        for(var i = 0; i < 100; i++) {
+            var a = document.createElement('a');
+            create.appendChild(a);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father{
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+        }
+
+        .son {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="son">son盒子</div>
+    </div>
+
+    <script>
+        // DOM事件流就是事件发生时在元素节点之间传播的顺序
+        // DOM事件流三个阶段：捕获阶段  目标阶段    冒泡阶段
+        // 1. JS代码中只能执行捕获或冒泡其中之一
+        // 2. onclick只能得到冒泡阶段
+
+        // 3. addEventListener如果第三个参数是true则处于捕获阶段
+        // html -> body -> father -> son    点击先弹出father在弹出son
+        var son = document.querySelector('.son');
+        son.addEventListener('click', function() {
+            alert('son');
+        }, true);
+        var father = document.querySelector('.father');
+        father.addEventListener('click', function() {
+            alert('father');
+        }, true);
+
+        // 4. addEventListener如果第三个参数是false 或 省略 则处于冒泡阶段
+        // son -> father -> body -> html    点击后先弹出son再弹出father
+        var son = document.querySelector('.son');
+        son.addEventListener('click', function() {
+            alert('son');
+        }, false);
+        var father = document.querySelector('.father');
+        father.addEventListener('click', function() {
+            alert('father');
+        }, false);
+
+        // 有的事件没有冒泡，如onblur、onfocus、onmouseenter、onmouseleave
+    </script>
+</body>
+</html>
